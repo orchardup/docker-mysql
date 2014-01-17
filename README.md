@@ -35,5 +35,5 @@ Here's how it works:
 Environment variables
 ---------------------
 
- - `MYSQL_ROOT_PASSWORD`: The password for the root user, set every time the server starts.
+ - `MYSQL_ROOT_PASSWORD`: The password for the root user, set every time the server starts. Defaults to a blank password, which is handy for development, but you should probably set this to something in production.
 
