@@ -7,6 +7,7 @@ Includes a bunch of useful features such as:
 
  - Exporting volumes so your data persists.
  - Not running as root.
+ - Printing log output.
  - Setting up a root password when starting.
 
 Here's how it works:
