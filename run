@@ -1,0 +1,21 @@
+#!/bin/bash
+set -e
+
+MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-""}
+
+tfile=`mktemp`
+if [ ! -f "$tfile" ]; then
+    return 1
+fi
+
+cat << EOF > $tfile
+USE mysql;
+FLUSH PRIVILEGES;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+UPDATE user SET password=PASSWORD("$MYSQL_ROOT_PASSWORD") WHERE user='root';
+EOF
+
+/usr/sbin/mysqld --bootstrap --verbose=0 < $tfile
+rm -f $tfile
+
+exec /usr/sbin/mysqld
