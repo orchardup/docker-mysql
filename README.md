@@ -3,12 +3,13 @@ docker-mysql
 
 MySQL on Docker.
 
-Includes a bunch of useful features such as:
+Includes a bunch of cool features such as:
 
  - Exporting volumes so your data persists.
  - Not running as root.
  - Printing log output.
- - Setting a root password when starting.
+ - Setting a root password.
+ - Creating a user and database.
 
 Here's how it works:
 
