@@ -17,7 +17,7 @@ fi
 cat << EOF > $tfile
 USE mysql;
 FLUSH PRIVILEGES;
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
 UPDATE user SET password=PASSWORD("$MYSQL_ROOT_PASSWORD") WHERE user='root';
 EOF
 
