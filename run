@@ -8,6 +8,7 @@ MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-""}
 MYSQL_DATABASE=${MYSQL_DATABASE:-""}
 MYSQL_USER=${MYSQL_USER:-""}
 MYSQL_PASSWORD=${MYSQL_PASSWORD:-""}
+MYSQLD_ARGS=${MYSQLD_ARGS:-""}
 
 tfile=`mktemp`
 if [[ ! -f "$tfile" ]]; then
@@ -29,7 +30,7 @@ if [[ $MYSQL_DATABASE != "" ]]; then
     fi
 fi
 
-/usr/sbin/mysqld --bootstrap --verbose=0 < $tfile
+/usr/sbin/mysqld --bootstrap --verbose=0 $MYSQLD_ARGS < $tfile
 rm -f $tfile
 
-exec /usr/sbin/mysqld
+exec /usr/sbin/mysqld $MYSQLD_ARGS
