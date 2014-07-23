@@ -1,6 +1,15 @@
 #!/bin/bash
 set -e
 
+MYSQL_RAM=${MYSQL_RAM:-"0"}
+MYSQL_RAM_SIZE=${MYSQL_RAM_SIZE:-"256"}
+
+if [[ "$MYSQL_RAM" != "0" ]]; then
+    echo "Mounting MySQL with ${MYSQL_RAM_SIZE}MB of RAM."
+    mkdir -p /var/lib/mysql
+    mount -t tmpfs -o size="${MYSQL_RAM_SIZE}m" tmpfs /var/lib/mysql
+fi
+
 chown -R mysql:mysql /var/lib/mysql
 mysql_install_db --user mysql > /dev/null
 

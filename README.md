@@ -11,6 +11,7 @@ Includes a bunch of cool features such as:
  - Setting a root password.
  - Creating a user and database.
  - Passing extra parameters to mysqld.
+ - Running MySQL on RAM (datadir mounted on tmpfs)
 
 Here's how it works:
 
@@ -42,4 +43,5 @@ Environment variables
  - `MYSQL_USER`: A user to create that has access to the database specified by `MYSQL_DATABASE`.
  - `MYSQL_PASSWORD`: The password for `MYSQL_USER`. Defaults to a blank password.
  - `MYSQLD_ARGS`: extra parameters to pass to the mysqld process
- 
+ - `MYSQLD_RAM`: Turn on tmpfs datadir mounting. Defaults to 0.
+ - `MYSQLD_RAM_SIZE`: tmpfs datadir size in megabytes. Defaults to 256.
