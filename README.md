@@ -42,4 +42,15 @@ Environment variables
  - `MYSQL_USER`: A user to create that has access to the database specified by `MYSQL_DATABASE`.
  - `MYSQL_PASSWORD`: The password for `MYSQL_USER`. Defaults to a blank password.
  - `MYSQLD_ARGS`: extra parameters to pass to the mysqld process
- 
+
+Troubleshooting
+---------------
+
+If you are trying to build the box and run into problems with dns:
+
+```
+sudo service docker stop
+sudo apt-get install bridge-utils
+sudo ifconfig docker0 down
+docker -d --dns 8.8.8.8
+```
