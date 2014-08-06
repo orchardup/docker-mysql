@@ -1,6 +1,8 @@
 docker-mysql
 ============
 
+**Note:** This image is now deprecated. Please use the [official mysql image](https://registry.hub.docker.com/_/mysql/) instead.
+
 MySQL on Docker.
 
 Includes a bunch of cool features such as:
